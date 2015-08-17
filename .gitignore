@@ -13,7 +13,9 @@ desktop.ini
 
 #ide
 .mf
+.id
 .idea/
+nbproject/
 build/
 dist/
 
