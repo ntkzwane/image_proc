@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="houghcircledetector.MainPanelController">
+   <children>
+      <ImageView fitHeight="804.0" fitWidth="813.0" pickOnBounds="true">
+         <image>
+            <Image url="@whitebackground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img_in" fitHeight="581.0" fitWidth="351.0" layoutX="14.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img_out" fitHeight="581.0" fitWidth="351.0" layoutX="435.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="14.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Open Image" />
+      <Button layoutX="722.0" layoutY="58.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Write" />
+      <Button layoutX="160.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Grayscale" />
+      <Button layoutX="283.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Smooth" />
+      <Button layoutX="721.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Reset" />
+      <Button layoutX="482.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonAction" text="CannyEdge" />
+      <Button layoutX="595.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Accumulator" />
+      <Text layoutX="16.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filter Size" />
+      <Text layoutX="16.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Standard Deviation" />
+      <Text layoutX="16.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="High Threshold" />
+      <Text layoutX="14.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Low Threshold" />
+      <TextField fx:id="text_filter" editable="false" layoutX="156.0" layoutY="13.0" maxHeight="31.0" maxWidth="91.0" minHeight="31.0" minWidth="91.0" prefHeight="31.0" prefWidth="92.0" />
+      <TextField fx:id="text_sigma" editable="false" layoutX="156.0" layoutY="42.0" maxHeight="31.0" maxWidth="91.0" minHeight="31.0" minWidth="91.0" prefHeight="31.0" prefWidth="92.0" />
+      <TextField fx:id="text_high_thresh" editable="false" layoutX="156.0" layoutY="73.0" maxHeight="31.0" maxWidth="91.0" minHeight="31.0" minWidth="91.0" prefHeight="31.0" prefWidth="92.0" />
+      <TextField fx:id="text_low_thresh" editable="false" layoutX="156.0" layoutY="105.0" maxHeight="31.0" maxWidth="91.0" minHeight="31.0" minWidth="91.0" prefHeight="31.0" prefWidth="92.0" />
+      <Button layoutX="250.0" layoutY="12.0" maxHeight="31.0" maxWidth="31.0" minHeight="31.0" minWidth="31.0" mnemonicParsing="false" onAction="#incFilter" prefHeight="31.0" prefWidth="31.0" text="+" />
+      <Button layoutX="282.0" layoutY="12.0" maxHeight="31.0" maxWidth="31.0" minHeight="31.0" minWidth="31.0" mnemonicParsing="false" onAction="#decFilter" prefHeight="31.0" prefWidth="31.0" text="-" />
+      <Button layoutX="282.0" layoutY="42.0" maxHeight="31.0" maxWidth="31.0" minHeight="31.0" minWidth="31.0" mnemonicParsing="false" onAction="#decSigma" prefHeight="31.0" prefWidth="31.0" text="-" />
+      <Button layoutX="250.0" layoutY="42.0" maxHeight="31.0" maxWidth="31.0" minHeight="31.0" minWidth="31.0" mnemonicParsing="false" onAction="#incSigma" prefHeight="31.0" prefWidth="31.0" text="+" />
+      <Button layoutX="282.0" layoutY="73.0" maxHeight="31.0" maxWidth="31.0" minHeight="31.0" minWidth="31.0" mnemonicParsing="false" onAction="#decHThresh" prefHeight="31.0" prefWidth="31.0" text="-" />
+      <Button layoutX="250.0" layoutY="73.0" maxHeight="31.0" maxWidth="31.0" minHeight="31.0" minWidth="31.0" mnemonicParsing="false" onAction="#incHThresh" prefHeight="31.0" prefWidth="31.0" text="+" />
+      <Button layoutX="282.0" layoutY="103.0" maxHeight="31.0" maxWidth="31.0" minHeight="31.0" minWidth="31.0" mnemonicParsing="false" onAction="#decLThresh" prefHeight="31.0" prefWidth="31.0" text="-" />
+      <Button layoutX="250.0" layoutY="103.0" maxHeight="31.0" maxWidth="31.0" minHeight="31.0" minWidth="31.0" mnemonicParsing="false" onAction="#incLThresh" prefHeight="31.0" prefWidth="31.0" text="+" />
+      <TextField fx:id="text_radius" layoutX="726.0" layoutY="106.0" prefHeight="31.0" prefWidth="56.0" text="13" />
+      <Button layoutX="717.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Hough" />
+      <Button layoutX="393.0" layoutY="157.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Sobel" />
+      <RadioButton fx:id="radio_write" layoutX="320.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleRadioClick" text="Write Circles With Outlines" />
+      <RadioButton fx:id="radio_radius" layoutX="319.0" layoutY="61.0" mnemonicParsing="false" onAction="#handleRadioClick" text="Accumulate All Radii In Image Range" />
+      <ColorPicker fx:id="color_write" layoutX="529.0" layoutY="12.0" />
+      <Text layoutX="589.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accumulator Radius" />
+   </children>
+</AnchorPane>
