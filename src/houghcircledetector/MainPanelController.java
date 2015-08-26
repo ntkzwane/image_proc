@@ -209,6 +209,16 @@ public class MainPanelController implements Initializable {
                 writeImageToFile(img_out);
                 break;
             }
+            case "HoughLine":{
+                WritableImage dest = new WritableImage(img_pr_obj.getIntWidth( ),img_pr_obj.getIntHeight( ));   
+                PixelWriter pixWriter = dest.getPixelWriter();
+                int[][] canny = cannyEdge(null);
+                int[][] toDraw = new int[img_pr_obj.getIntWidth()][img_pr_obj.getIntHeight()];
+                
+                houghT.houghLine(img_pr_obj, canny, toDraw, pixWriter);
+                img_out.setImage(dest);
+                break;
+            }
         }
     }
     

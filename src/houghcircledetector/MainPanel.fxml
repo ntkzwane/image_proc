@@ -47,5 +47,6 @@
       <RadioButton fx:id="radio_radius" layoutX="319.0" layoutY="61.0" mnemonicParsing="false" onAction="#handleRadioClick" text="Accumulate All Radii In Image Range" />
       <ColorPicker fx:id="color_write" layoutX="529.0" layoutY="12.0" />
       <Text layoutX="589.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accumulator Radius" />
+      <Button layoutX="333.0" layoutY="106.0" mnemonicParsing="false" onAction="#handleButtonAction" text="HoughLine" />
    </children>
 </AnchorPane>
